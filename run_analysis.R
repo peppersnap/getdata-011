@@ -67,7 +67,8 @@ all.data <- merge(activity_labels, all.data)
 
 # Extract only the measurements on the mean and standard deviation, i.e.
 # that contain the text '.mean.' or '.std.'
-required.colnames <- names(all.data)[grepl("\\.mean\\.|\\.std\\.",names(all.data))]
+required.colnames <- names(all.data)[grepl("\\.mean\\.|\\.std\\.",
+                                           names(all.data))]
 
 # create a dataset of the means of the data, grouped by Activity and Subject
 tidy <- aggregate(all.data[,required.colnames],

@@ -5,6 +5,7 @@
 #               destfile="dataset.zip", mode="wb")
 # unzip("dataset.zip")
 require(reshape2)
+require(plyr)
 
 # read the feature labels (only the 2nd column, as we don't need the
 # row number/ID)
@@ -82,7 +83,7 @@ melted <- melt(all.data, id=c("Activity","Subject.ID"),
 tidy <- dcast(melted, Activity + Subject.ID ~ variable, mean)
 
 # sort the data by Activity and Subject
-tidy <- tidy[order(tidy$Activity, as.integer(tidy$Subject)),]
+tidy <- arrange(tidy, Activity, as.integer(Subject.ID))
 
 # output the data to CSV
 write.csv(tidy, "tidy.csv", row.names = FALSE)

@@ -4,6 +4,7 @@
 # download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
 #               destfile="dataset.zip", mode="wb")
 # unzip("dataset.zip")
+require(reshape2)
 
 # read the feature labels (only the 2nd column, as we don't need the
 # row number/ID)
@@ -76,9 +77,9 @@ required.colnames <- names(all.data)[grepl("\\bmean\\b|\\bstd\\b",
                                            names(all.data))]
 
 # create a dataset of the means of the data, grouped by Activity and Subject
-tidy <- aggregate(all.data[,required.colnames],
-                  by=list(Activity=all.data$Activity,
-                          Subject=all.data$Subject.ID), mean)
+melted <- melt(all.data, id=c("Activity","Subject.ID"),
+               measure.vars=required.colnames)
+tidy <- dcast(melted, Activity + Subject.ID ~ variable, mean)
 
 # sort the data by Activity and Subject
 tidy <- tidy[order(tidy$Activity, as.integer(tidy$Subject)),]

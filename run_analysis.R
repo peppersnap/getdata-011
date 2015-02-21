@@ -65,7 +65,7 @@ all.data <- rbind(test.data, train.data)
 # Since both dataframes activity_labels and test.data have one column with
 # the same name, Activity.ID, the merge function by default will join
 # the tables based on this column.
-all.data <- merge(activity_labels, all.data)
+all.data <- merge(activity_labels, all.data, all=TRUE)
 
 #Tidy up the column names
 #The pattern below looks for a period followed by either another period

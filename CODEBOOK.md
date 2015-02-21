@@ -25,8 +25,8 @@ These signals were used to estimate variables of the feature vector for each pat
 
 The set of variables that were estimated from these signals are: 
 
-*mean(): Mean value
-*std(): Standard deviation
+* mean(): Mean value
+* std(): Standard deviation
 
 In the dataset in file *tidy.txt* produced by [run_analysis.R](../blob/master/run_analysis.R), the mean of these values are given, grouped by activity and subject.
 

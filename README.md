@@ -12,14 +12,14 @@ in a tidy format to tidy.txt.
 The script run_analysis.R requires that requires that the Samsung data set is extracted to the working directory.  It works as follows:
 
 1. Loads all relevant data into data tables:
-..* UCI HAR Dataset/features.txt: the lists of features being recorded
-..* UCI HAR Dataset/activity_labels.txt: the list of activites recorded
-..* UCI HAR Dataset/test/X_test.txt: the measurements for the test data set
-..* UCI HAR Dataset/test/y_test.txt: the activity identifiers for the test data set
-..* UCI HAR Dataset/test/subject_test.txt: the subject identifiers for the test data set
-..* UCI HAR Dataset/train/X_train.txt: the measurements for the training data set
-..* UCI HAR Dataset/train/y_train.txt: the activity identifiers for the training data set
-..* UCI HAR Dataset/train/subject_train.txt: the subject identifiers for the training data set
+  * UCI HAR Dataset/features.txt: the lists of features being recorded
+  * UCI HAR Dataset/activity_labels.txt: the list of activites recorded
+  * UCI HAR Dataset/test/X_test.txt: the measurements for the test data set
+  * UCI HAR Dataset/test/y_test.txt: the activity identifiers for the test data set
+  * UCI HAR Dataset/test/subject_test.txt: the subject identifiers for the test data set
+  * UCI HAR Dataset/train/X_train.txt: the measurements for the training data set
+  * UCI HAR Dataset/train/y_train.txt: the activity identifiers for the training data set
+  * UCI HAR Dataset/train/subject_train.txt: the subject identifiers for the training data set
 2) Merges the activity identifier and subject data with the test and training data sets.
 3) Combines the test and training data sets together.
 4) Merges the activity names into the data set.

@@ -67,14 +67,15 @@ all.data <- rbind(test.data, train.data)
 # the tables based on this column.
 all.data <- merge(activity_labels, all.data, all=TRUE)
 
-#Tidy up the column names
-#The pattern below looks for a period followed by either another period
-#or the end of the column name, and replaces it with "" (i.e. removes it)
+# Tidy up the column names
+# The pattern below looks for a period followed by either another period
+# or the end of the column name, and replaces it with "" (i.e. removes it)
 names(all.data) <- gsub(names(all.data), pattern="\\.(\\.|$)", replacement="")
 
 # Extract only the measurements on the mean and standard deviation, i.e.
-# that contain the text '.mean.' or '.std.'
-required.colnames <- names(all.data)[grepl("\\bmean\\b|\\bstd\\b",
+# that contain the word 'mean' or 'std'
+# '\\b' represents a word boundary.
+required.colnames <- names(all.data)[grepl("\\b(mean|std)\\b",
                                            names(all.data))]
 
 # create a dataset of the means of the data, grouped by Activity and Subject

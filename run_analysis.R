@@ -86,4 +86,4 @@ tidy <- dcast(melted, Activity + Subject.ID ~ variable, mean)
 tidy <- arrange(tidy, Activity, as.integer(Subject.ID))
 
 # output the data to CSV
-write.csv(tidy, "tidy.csv", row.names = FALSE)
+write.table(tidy, "tidy.txt", row.names = FALSE)
